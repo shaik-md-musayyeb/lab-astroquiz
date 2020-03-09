@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import utility.BasicEligibility;
 import utility.EligibiltyCheck;
+import utility.*;
 
 @WebServlet(urlPatterns= {"/eligiblemain"})
 public class Eligibility extends HttpServlet {
@@ -22,9 +24,10 @@ public class Eligibility extends HttpServlet {
 	// Create an object for EligibiltyCheck
 	// Call the checkQuizAnswer method and pass the argument as points.
 	// Store the return value in a variable called spaceEligible.
-		
+	EligibilityInterface be = new EligibiltyCheck();
+	boolean spaceEligible=be.checkQuizAnswer(points);
 	
-	if(false)
+	if(spaceEligible)
 	{
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/success.html");
 		rd.forward(request, response);	

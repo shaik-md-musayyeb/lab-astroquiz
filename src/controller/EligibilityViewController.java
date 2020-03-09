@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
+
 import utility.BasicEligibility;
 import utility.EligibiltyCheck;
 
@@ -49,8 +50,9 @@ public class EligibilityViewController extends HttpServlet {
 		// Create an Object for EligibiltyCheck
 		// Call the basicEligibilityCheck method with the object created pass the user argument as the value to method.
 		// Store the return value in a boolean variable called spaceEligible
-		 
-		
+		BasicEligibility be = new EligibiltyCheck();
+		boolean spaceEligible=be.basicEligibilityCheck(user);
+				
 		System.out.println(spaceEligible);
 			if(spaceEligible)
 			{
